@@ -1,0 +1,7 @@
+.question {
+    display: block;
+}
+
+ol {
+    list-style-type: upper-alpha;
+}
