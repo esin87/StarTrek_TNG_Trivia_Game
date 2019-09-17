@@ -1,10 +1,25 @@
 //obtain engage button from DOM
 const engageButton = document.getElementById("engage");
 
+//obtain score display from DOM
+const scoreDisplay = document.getElementById("score-display");
+let scoreCount = document.getElementById("score-count")
+
+//score counter
+let score = 0;
+
+//increment score function 
+function increaseScore() {
+    score++;
+    scoreCount.innerText = score;
+}
+
 //engage button begins quiz and switches to next question
 engageButton.addEventListener("click", () => {
     console.log("You clicked engage!");
+    scoreDisplay.style.display = "block";
     changeQuestion();
+    document.getElementById("intro").style.display = "none";
 })
 
 //obtain questions from DOM
@@ -39,7 +54,8 @@ function checkAnswer() {
     let answerChoices = document.querySelectorAll("ol")[currentQuestion];
     answerChoices.addEventListener("click", (evt) => {
         if (evt.target.classList.contains("correct")) {
-            alert("Correct!")
+            alert("Correct!");
+            increaseScore();
         }
         else {
             alert("Incorrect.")
