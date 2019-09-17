@@ -30,22 +30,28 @@
 body {
     max-width: 800px;
     margin: 0 auto;
+    background: url(images/milky-way-2675322_1920.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
-h1 {
+h1, h2 {
     font-family: 'federationregular', sans-serif;
-}
+    color: rgb(35,110,190); 
+    text-align: center;
+    margin: 0 auto;
 
-h2 {
-    font-family: 'federationregular', sans-serif;
 }
 
 h3 {
     font-family: 'trek_tng_monitorsregular', sans-serif;
+    color: white;
+    margin: 0 auto;
+
 }
 
 header {
     text-align: center;
+    padding: 25px;
 }
 
 p, ol {
@@ -54,8 +60,9 @@ p, ol {
 }
 
 main {
-    background-color: gray;
-    padding: 10px;
+    background-color: rgba(255,255,255,0.75);
+    padding: 15px;
+    margin: 10px;
 }
 
 .question {
@@ -69,7 +76,8 @@ ol {
 
 #score-display {
     display: none;
-    font-family: "Arial Narrow", sans-serif;
+    font-family: "trek_tng_monitorsregular", sans-serif;
+    font-size: 150%;
     text-align: center;
     width: 20%;
     padding: 10px;
@@ -77,18 +85,28 @@ ol {
     border: 1px solid black;
 }
 
+#intro img {
+    width: 100%;
+}
+
 #engage {
-    font-family: "trek_tng_monitorsregular";
+    font-family: "trek_tng_monitorsregular", sans-serif;
+    font-size: 150%;
     text-align: center;
     border: 1px solid black;
     width: 20%;
     margin: 0 auto;
     padding: 10px;
+}
+
+#engage:hover {
+    background-color: rgb(35,110,190);
+    color: white;
 }
 
 #end-page {
     display: none;
-    font-family: "Arial Narrow", sans-serif;
+    font-family: "trek_tng_monitorsregular", sans-serif;
     font-size: 180%;
     padding: 5% 30%;
     text-align: center;
@@ -98,4 +116,6 @@ footer {
     text-align: center;
     font-size: 75%;
     padding: 10px;
+    color: white;
 }
+
