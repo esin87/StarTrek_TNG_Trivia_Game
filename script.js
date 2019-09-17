@@ -20,6 +20,9 @@ engageButton.addEventListener("click", () => {
     scoreDisplay.style.display = "block";
     changeQuestion();
     document.getElementById("intro").style.display = "none";
+    if (currentQuestion > 10) {
+        document.location.reload();
+    }
 })
 
 //obtain questions from DOM
@@ -61,5 +64,6 @@ function checkAnswer() {
         else {
             alert("Incorrect.")
         }
+        changeQuestion();
     })
 }
