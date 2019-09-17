@@ -45,6 +45,7 @@ function changeQuestion() {
     if (currentQuestion > questionArray.length) {
         console.log("Reached end of questions.")
         questionArray[questionArray.length-1].style.display = "none";
+        document.getElementById("end-page").innerText = `You scored ${score} out of 10! Press "ENGAGE!" to play again.`
         document.getElementById("end-page").style.display = "block";
     }
 }
