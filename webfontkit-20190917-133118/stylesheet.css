@@ -34,19 +34,3 @@
     font-style: normal;
 
 }
-
-.question {
-    display: none;
-}
-
-ol {
-    list-style-type: upper-alpha;
-}
-
-#score {
-    display: none;
-}
-
-#end-page {
-    display: none;
-}
