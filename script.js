@@ -19,6 +19,7 @@ engageButton.addEventListener("click", () => {
     console.log("You clicked engage!");
     scoreDisplay.style.display = "block";
     changeQuestion();
+    
     document.getElementById("intro").style.display = "none";
     if (currentQuestion > 10) {
         document.location.reload();
@@ -34,6 +35,7 @@ let currentQuestion = 0;
 
 //change question button
 function changeQuestion() {
+    engageButton.style.display="none"
     if (currentQuestion < questionArray.length){
         questionArray[currentQuestion].style.display = "block";
         if (currentQuestion > 0)
@@ -46,6 +48,7 @@ function changeQuestion() {
     currentQuestion++;
     
     if (currentQuestion > questionArray.length) {
+        engageButton.style.display="block"
         console.log("Reached end of questions.")
         questionArray[questionArray.length-1].style.display = "none";
         document.getElementById("end-page").innerText = `You scored ${score} out of 10! Press "ENGAGE!" to play again.`
@@ -53,17 +56,41 @@ function changeQuestion() {
     }
 }
 
+let answerFeedbackDiv = document.querySelector("#answer-feedback");
+let answerFeedbackText = document.querySelector("#answer-feedback-text")
 //check if answer is correct
 function checkAnswer() {
     let answerChoices = document.querySelectorAll("ol")[currentQuestion];
     answerChoices.addEventListener("click", (evt) => {
         if (evt.target.classList.contains("correct")) {
-            alert("Correct!");
+            showCorrectAnswerFeedback();
             increaseScore();
         }
         else {
-            alert("Incorrect.")
+            showIncorrectAnswerFeedback();
         }
+    })
+}
+
+function showCorrectAnswerFeedback() {
+    answerFeedbackText.innerText = "Correct! Click anywhere to continue."
+    answerFeedbackDiv.style.display = "block"
+    answerFeedbackDiv.addEventListener("click", () => {
+        hideAnswerFeedback();
         changeQuestion();
     })
+}
+
+function showIncorrectAnswerFeedback() {
+    answerFeedbackText.innerText = "Incorrect. Click anywhere to continue.";
+    answerFeedbackDiv.style.display = "block";
+    answerFeedbackDiv.addEventListener("click", () => {
+        hideAnswerFeedback();
+        changeQuestion();
+    })
+}
+
+function hideAnswerFeedback() {
+    answerFeedbackDiv.style.display="none";
+    answerFeedbackText.innerText = ""
 }

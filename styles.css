@@ -59,6 +59,12 @@ p, ol {
     line-height: 130%;
 }
 
+li:hover {
+    color: rgb(35,110,190);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 main {
     background-color: rgba(255,255,255,0.75);
     padding: 15px;
@@ -83,6 +89,7 @@ ol {
     padding: 10px;
     margin: 0 auto;
     border: 1px solid black;
+    color: rgb(35,110,190);
 }
 
 #intro img {
@@ -102,6 +109,7 @@ ol {
 #engage:hover {
     background-color: rgb(35,110,190);
     color: white;
+    cursor: pointer;
 }
 
 #end-page {
@@ -122,4 +130,28 @@ footer {
 .question img {
     width: 100%;
     margin: 0 auto;
+}
+
+#answer-feedback {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#answer-feedback-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    font-family: "trek_tng_monitorsregular", sans-serif;
+    transform: translate(-50%, -50%);
 }
