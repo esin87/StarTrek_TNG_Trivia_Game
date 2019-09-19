@@ -2,7 +2,7 @@
 ### A trivia game for lovers of Star Trek: The Next Generation (TNG). Engage!
 
 ## Project Preview
-![Screenshot of project]
+![image]
 ('images/Project1 ScreenShot.png')
 
 ## URL
