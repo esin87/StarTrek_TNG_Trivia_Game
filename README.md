@@ -1,7 +1,7 @@
 # StarTrek_TNG_Trivia_Game
 ### A trivia game for lovers of Star Trek: The Next Generation (TNG). Engage!
 
-![Screenshot of project](Project1 ScreenShot.png)
+![Screenshot of project](/Project1 ScreenShot.png)
 
 ## URL
 My game can be found at this [link](https://esin87.github.io/StarTrek_TNG_Trivia_Game/).
