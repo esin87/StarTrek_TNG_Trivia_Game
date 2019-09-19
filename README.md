@@ -1,10 +1,10 @@
 # StarTrek_TNG_Trivia_Game
 ### A trivia game for lovers of Star Trek: The Next Generation (TNG). Engage!
 
-![Screenshot of project] (Project1 ScreenShot.png)
+![Screenshot of project](Project1 ScreenShot.png)
 
 ## URL
-My game can be found at this [link] (https://esin87.github.io/StarTrek_TNG_Trivia_Game/).
+My game can be found at this [link](https://esin87.github.io/StarTrek_TNG_Trivia_Game/).
 
 ## About This Game
 Lovers of Star Trek are in good company. Self-professed fans include Barack Obama, Rihanna, and Tom Hanks. This is a trivia game consisting of ten TNG-based questions built using HTML, CSS and JavaScript. Star Trek: TNG is my favorite series in the Star Trek franchise, and for my first independent, from-scratch project in the General Assembly: Software-Engineering Immersive Course, I decided to indulge my love of all things Trek by building this game. The questions were written by me. I do not own any of the rights to Star Trek. 
