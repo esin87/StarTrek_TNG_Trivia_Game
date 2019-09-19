@@ -14,88 +14,58 @@ function increaseScore() {
     scoreCount.innerText = score;
 }
 
-//engage button begins quiz and switches to next question
-engageButton.addEventListener("click", () => {
-    //change score display to appear
-    scoreDisplay.style.display = "block";
-    //if game hasn't started, use Engage to start game
-    if (currentQuestion===0) {
-        changeQuestion();
-    }
-    
-    //hide intro page
-    document.getElementById("intro").style.display = "none";
-
-    //if game is over, use engage to restart 
-    if (currentQuestion > 10) {
-        document.location.reload();
-    }
-})
-
 //obtain questions from DOM
 const questionArray = document.getElementsByClassName("question");
 
 //question incrementor
 let currentQuestion = 0;
 
-
-//change question button
-function changeQuestion() {
-    //hide engage button
-    if (engageButton.style.display!=="none") {
-        engageButton.style.display="none"
-    }
-    //if current question is less than question array length
-    if (currentQuestion < questionArray.length){
-        //show current question
-        questionArray[currentQuestion].style.display = "block";
-        //if past the first question, hide the previous question
-        if (currentQuestion > 0){
-            questionArray[currentQuestion-1].style.display = "none";
-            }
-        //run check answer function
-        checkAnswer();
-       
-    }
-    
-    //increment current question
-    currentQuestion++;
-
-    //if end of questions is reached
-    if (currentQuestion > questionArray.length) {
-        //show engage button again
-        engageButton.style.display="block"
-        //hide last question
-        questionArray[questionArray.length-1].style.display = "none";
-        //show score
-        document.getElementById("end-page").innerText = `You scored ${score} out of 10! Press "ENGAGE!" to play again.`
-        //show end page div
-        document.getElementById("end-page").style.display = "block";
-    }
-     
-}
 //grab answer feedback div from dom
 let answerFeedbackDiv = document.querySelector("#answer-feedback");
 //grab answer feedback text div from dom
-let answerFeedbackText = document.querySelector("#answer-feedback-text")
+let answerFeedbackText = document.querySelector("#answer-feedback-text");
 
-//check if answer is correct
+engageButton.addEventListener("click", () => {
+    toggleEngageButton();
+    playGame();
+    //if game is over, use engage to restart 
+    if (currentQuestion >= questionArray.length) {
+        document.location.reload();
+    }
+})
+
+function playGame() {
+    if (currentQuestion === 0) {
+        document.getElementById("intro").style.display = "none";
+        scoreDisplay.style.display = "block";
+        questionArray[currentQuestion].style.display = "block";
+    }
+    checkAnswer();
+
+
+}
+
+
+function toggleEngageButton() {
+    if (engageButton.style.dislay !== "none") {
+        engageButton.style.display = "none"
+    } else {
+        engageButton.style.display = "block";
+    }
+}
+
 function checkAnswer() {
-    //grab ordered list from dom
-    let answerChoices = document.querySelectorAll("ol")[currentQuestion];
-    //add event listener to entire ordered list object
+    if (currentQuestion < questionArray.length){
+        let answerChoices = document.querySelectorAll("ol")[currentQuestion];
     answerChoices.addEventListener("click", (evt) => {
-        //if class is correct, show correct feedback and increase score
         if (evt.target.classList.contains("correct")) {
             showCorrectAnswerFeedback();
             increaseScore();
-        }
-        //else show incorrect answer
-        else {
+        } else {
             showIncorrectAnswerFeedback();
         }
-        changeQuestion();
-    })
+        })
+    }
 }
 
 function showCorrectAnswerFeedback() {
@@ -121,6 +91,32 @@ function hideAnswerFeedback() {
     answerFeedbackDiv.addEventListener("click", () => {
         answerFeedbackDiv.style.display="none";
         answerFeedbackText.innerText = "";
-        
+        if (currentQuestion < questionArray.length) {
+            toggleNextQuestion();
+        }
+        if (currentQuestion >=  questionArray.length) {
+            showEndPage();
+        }
     })
+    if (currentQuestion < questionArray.length) {
+        currentQuestion++;
+        playGame();
+    }
+    
+}
+
+function toggleNextQuestion() {
+    questionArray[currentQuestion-1].style.display = "none";
+    questionArray[currentQuestion].style.display = "block";
+}
+
+function showEndPage() {
+    //show engage button again
+    engageButton.style.display="block"
+    //hide last question
+    questionArray[questionArray.length-1].style.display = "none";
+    //show score
+    document.getElementById("end-page").innerText = `You scored ${score} out of 10! Press "ENGAGE!" to play again.`
+    //show end page div
+    document.getElementById("end-page").style.display = "block";
 }
