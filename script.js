@@ -1,8 +1,8 @@
 //obtain engage button from DOM
-const engageButton = document.getElementById("engage");
+let engageButton = document.getElementById("engage");
 
 //obtain score display from DOM
-const scoreDisplay = document.getElementById("score-display");
+let scoreDisplay = document.getElementById("score-display");
 let scoreCount = document.getElementById("score-count")
 
 //score counter
@@ -15,7 +15,7 @@ function increaseScore() {
 }
 
 //obtain questions from DOM
-const questionArray = document.getElementsByClassName("question");
+let questionArray = document.getElementsByClassName("question");
 
 //question incrementor
 let currentQuestion = 0;
@@ -26,7 +26,9 @@ let answerFeedbackDiv = document.querySelector("#answer-feedback");
 let answerFeedbackText = document.querySelector("#answer-feedback-text");
 
 engageButton.addEventListener("click", () => {
+    //hide engage button
     toggleEngageButton();
+    //start game
     playGame();
     //if game is over, use engage to restart 
     if (currentQuestion >= questionArray.length) {
@@ -34,26 +36,28 @@ engageButton.addEventListener("click", () => {
     }
 })
 
+//runs game
 function playGame() {
+    //if game is beginning, hide intro page and pull first question
     if (currentQuestion === 0) {
         document.getElementById("intro").style.display = "none";
         scoreDisplay.style.display = "block";
         questionArray[currentQuestion].style.display = "block";
     }
+    //checks answer and gives appropriate feedback
     checkAnswer();
-
-
 }
 
-
+//hide or display engage button
 function toggleEngageButton() {
-    if (engageButton.style.dislay !== "none") {
+    if (engageButton.style.display !== "none") {
         engageButton.style.display = "none"
     } else {
         engageButton.style.display = "block";
     }
 }
 
+//checks answer and gives feedback
 function checkAnswer() {
     if (currentQuestion < questionArray.length){
         let answerChoices = document.querySelectorAll("ol")[currentQuestion];
@@ -68,6 +72,7 @@ function checkAnswer() {
     }
 }
 
+//rewrite into one showAnswerFeedback feedback function
 function showCorrectAnswerFeedback() {
     //add feedback to text div
     answerFeedbackText.innerText = "Correct! Click anywhere to continue."
@@ -105,18 +110,40 @@ function hideAnswerFeedback() {
     
 }
 
+//switch to next question
 function toggleNextQuestion() {
     questionArray[currentQuestion-1].style.display = "none";
     questionArray[currentQuestion].style.display = "block";
 }
 
+//provide results of quiz
 function showEndPage() {
     //show engage button again
     engageButton.style.display="block"
     //hide last question
     questionArray[questionArray.length-1].style.display = "none";
-    //show score
-    document.getElementById("end-page").innerText = `You scored ${score} out of 10! Press "ENGAGE!" to play again.`
-    //show end page div
+    let scoreGIF = document.createElement("img")
+    if (score < 5) {
+        //show score
+        document.getElementById("end-page").innerText = `You scored ${score} out of 10! Better brush up on your Star Trek trivia. Press "ENGAGE!" to play again.`
+        //grab right gif
+        scoreGIF.setAttribute("src", "https://media.giphy.com/media/o14YPU6vooy0o/giphy.gif");
+        scoreGIF.setAttribute("alt", "Picard rubs his forehead wearily.")
+        document.getElementById("end-page").appendChild(scoreGIF);
+    } else if (score >= 5 && score < 9) {
+        //show score
+        document.getElementById("end-page").innerText = `You scored ${score} out of 10! Not too bad. Data approves. Press "ENGAGE!" to play again.`
+        scoreGIF.setAttribute("src", "https://media.giphy.com/media/rIq6ASPIqo2k0/giphy.gif");
+        scoreGIF.setAttribute("alt", "Data nods in approval");
+        scoreGIF.style.width = "100%";
+        document.getElementById("end-page").appendChild(scoreGIF);
+    } else if (score >=9) {
+        //show score
+        document.getElementById("end-page").innerText = `You scored ${score} out of 10! Picard is impressed. Press "ENGAGE!" to play again.`
+        scoreGIF.setAttribute("src", "https://media.giphy.com/media/999fcCCj45Bde/giphy.gif");
+        scoreGIF.setAttribute("alt", "Picard says, 'Damn'")
+        document.getElementById("end-page").appendChild(scoreGIF);
+    }
+    //show end page div 
     document.getElementById("end-page").style.display = "block";
 }
