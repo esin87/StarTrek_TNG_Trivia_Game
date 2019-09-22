@@ -63,51 +63,53 @@ function checkAnswer() {
         let answerChoices = document.querySelectorAll("ol")[currentQuestion];
     answerChoices.addEventListener("click", (evt) => {
         if (evt.target.classList.contains("correct")) {
-            showCorrectAnswerFeedback();
+            showAnswerFeedback("correct");
             increaseScore();
         } else {
-            showIncorrectAnswerFeedback();
+            showAnswerFeedback("incorrect");
         }
         })
     }
 }
 
-//rewrite into one showAnswerFeedback feedback function
-function showCorrectAnswerFeedback() {
-    //add feedback to text div
-    answerFeedbackText.innerText = "Correct! Click anywhere to continue."
-    //make feedback div overlay visible
-    answerFeedbackDiv.style.display = "block"
+//rewrite into one showAnswerFeedback feedback function per instructor feedback
+function showAnswerFeedback(answer) {
+    if (answer === "correct") {
+        //add feedback to text div
+        answerFeedbackText.innerText = "Correct! Click anywhere to continue."
+        //make feedback div overlay visible
+        answerFeedbackDiv.style.display = "block"
+    } else if (answer === "incorrect") {
+        //add feedback to text div
+        answerFeedbackText.innerText = "Incorrect. Click anywhere to continue.";
+        //make feedback div overlay visible
+        answerFeedbackDiv.style.display = "block";
+    }
     //hide feedback and continue game
     hideAnswerFeedback();
-}
-
-function showIncorrectAnswerFeedback() {
-    //add feedback to text div
-    answerFeedbackText.innerText = "Incorrect. Click anywhere to continue.";
-    //make feedback div overlay visible
-    answerFeedbackDiv.style.display = "block";
-    //hide feedback and continue game
-    hideAnswerFeedback();
-    
 }
 
 function hideAnswerFeedback() {
+    //listen for click on entire div
     answerFeedbackDiv.addEventListener("click", () => {
+        //hide div
         answerFeedbackDiv.style.display="none";
+        //erase answer feedback
         answerFeedbackText.innerText = "";
+        //if there are still questions, show next question
         if (currentQuestion < questionArray.length) {
             toggleNextQuestion();
         }
+        //if reached end of question array, go to end page
         if (currentQuestion >=  questionArray.length) {
             showEndPage();
         }
     })
+    //if there are still questions, increment questions and keep playing
     if (currentQuestion < questionArray.length) {
         currentQuestion++;
         playGame();
     }
-    
 }
 
 //switch to next question
