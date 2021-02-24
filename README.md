@@ -4,7 +4,7 @@
 
 ## Project Preview
 
-![image](/assets/assets/images/Project1_ScreenShot.png)
+![image](/assets/images/Project1_ScreenShot.png)
 
 ## URL
 
@@ -35,6 +35,6 @@ Initially I wrote the game logic using alerts to give the user answer feedback. 
 Some future additions that I would like to implement:
 
 - [ ] A timer that gives the user more points for answering questions sooner.
-- [x] A score card that gives the user their level of Trekkieness at the end.
+- [x] A score card that gives the user a different GIF for each score range.
 - [ ] A larger pool of questions that are then randomly assigned each time a user plays the game, so that users can play the game multiple times and save their progress.
 - [ ] Mobile responsive design
