@@ -4,11 +4,11 @@
 
 ## Project Preview
 
-![image](/images/Project1_ScreenShot.png)
+![image](/assets/assets/images/Project1_ScreenShot.png)
 
 ## URL
 
-My game can be found at this [link](https://esin87.github.io/StarTrek_TNG_Trivia_Game/).
+My deployed game can be found at this [link](https://esin87.github.io/star-trek-tng-trivia-game/).
 
 ## About This Game
 
@@ -16,19 +16,15 @@ Lovers of Star Trek are in good company. Self-professed fans include Barack Obam
 
 ## Technologies Used
 
-The technologies used here are HTML5, CSS and JavaScript. The code was passed through the HTML5 Validator and CSS validator and passed both tests.
+The technologies used here are HTML5, CSS and vanilla JavaScript. The code was passed through the HTML5 Validator and CSS validator and passed both tests. Custom Star Trek-themed fonts were downloaded from Font Squirrel.
 
 ## Installation Instructions
 
-Please download the folder titled TNG_Trivia, which contains an images folder and fonts folder, as well as the index.html, styles.css, and script.js files that contain all of my code. Then open the index.html file in a browser (preferably Google Chrome) to play the game.
-
-## User Stories
-
-The home page of my game contains an "about" module, giving the user instructions and defining the objectives. My user will be able to click an "Engage!" button that will begin the game. The user will answer ten multiple choice questions about Star Trek: TNG, and accumulate points for correct answers. They will see their score progress and be given their final score at the end. The user will be able to reset the game to play the game.
+Clone/download the repository to your machine. Then open the index.html file in a browser (preferably Google Chrome) to play the game.
 
 ## Wireframes
 
-My wireframe drawings are at this [link](https://github.com/esin87/StarTrek_TNG_Trivia_Game/blob/master/Star%20Trek%20Trivia%20Game%20Wireframes.pdf).
+My wireframe drawings can be found here [link](assets/wireframes.pdf).
 
 ## Problems
 
@@ -36,4 +32,9 @@ Initially I wrote the game logic using alerts to give the user answer feedback. 
 
 ## Future Additions
 
-Some future additions that I would like to implement: A timer that gives the user more points for answering questions sooner. A score card that gives the user their level of Trekkieness at the end. A larger pool of questions that are then randomly assigned each time a user plays the game, so that users can play the game multiple times and save their progress.
+Some future additions that I would like to implement:
+
+- [ ] A timer that gives the user more points for answering questions sooner.
+- [x] A score card that gives the user their level of Trekkieness at the end.
+- [ ] A larger pool of questions that are then randomly assigned each time a user plays the game, so that users can play the game multiple times and save their progress.
+- [ ] Mobile responsive design
