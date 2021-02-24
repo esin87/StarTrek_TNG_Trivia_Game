@@ -20,17 +20,19 @@
 
 @font-face {
 	font-family: 'federationregular';
-	src: url('webfontkit-20190917-133118/tng_title-webfont.woff2') format('woff2'),
-		url('webfontkit-20190917-133118/tng_title-webfont.woff') format('woff');
+	src: url('assets/webfontkit-20190917-133118/tng_title-webfont.woff2')
+			format('woff2'),
+		url('assets/webfontkit-20190917-133118/tng_title-webfont.woff')
+			format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'trek_tng_monitorsregular';
-	src: url('webfontkit-20190917-133118/trek_tng_monitors-webfont.woff2')
+	src: url('assets/webfontkit-20190917-133118/trek_tng_monitors-webfont.woff2')
 			format('woff2'),
-		url('webfontkit-20190917-133118/trek_tng_monitors-webfont.woff')
+		url('assets/webfontkit-20190917-133118/trek_tng_monitors-webfont.woff')
 			format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -38,8 +40,10 @@
 
 @font-face {
 	font-family: 'trekbatsregular';
-	src: url('webfontkit-20190917-133118/trekbats-webfont.woff2') format('woff2'),
-		url('webfontkit-20190917-133118/trekbats-webfont.woff') format('woff');
+	src: url('assets/webfontkit-20190917-133118/trekbats-webfont.woff2')
+			format('woff2'),
+		url('assets/webfontkit-20190917-133118/trekbats-webfont.woff')
+			format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -47,8 +51,8 @@
 body {
 	max-width: 800px;
 	margin: 0 auto;
-	background: url(images/milky-way-2675322_1920.jpg) no-repeat center center
-		fixed;
+	background: url(assets/images/milky-way-2675322_1920.jpg) no-repeat center
+		center fixed;
 	background-size: cover;
 }
 
