@@ -149,7 +149,7 @@ function showEndPage() {
 		scoreGIF.setAttribute('alt', 'Data nods in approval');
 		scoreGIF.style.width = '100%';
 		document.getElementById('end-page').appendChild(scoreGIF);
-	} else if (score >= 9) {
+	} else {
 		//show score
 		document.getElementById(
 			'end-page'
