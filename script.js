@@ -124,43 +124,38 @@ function showEndPage() {
 	engageButton.style.display = 'block';
 	//hide last question
 	questionArray[questionArray.length - 1].style.display = 'none';
-	let scoreGIF = document.createElement('img');
+	const scoreGIF = document.createElement('img');
+	const endPage = document.getElementById('end-page');
 	if (score < 5) {
 		//show score
-		document.getElementById(
-			'end-page'
-		).innerText = `You scored ${score} out of 10! Better brush up on your Star Trek trivia. Press "ENGAGE!" to play again.`;
+		endPage.innerText = `You scored ${score} out of 10! Better brush up on your Star Trek trivia. Press "ENGAGE!" to play again.`;
 		//grab right gif
 		scoreGIF.setAttribute(
 			'src',
 			'https://media.giphy.com/media/o14YPU6vooy0o/giphy.gif'
 		);
 		scoreGIF.setAttribute('alt', 'Picard rubs his forehead wearily.');
-		document.getElementById('end-page').appendChild(scoreGIF);
+		endPage.appendChild(scoreGIF);
 	} else if (score >= 5 && score < 9) {
 		//show score
-		document.getElementById(
-			'end-page'
-		).innerText = `You scored ${score} out of 10! Not too bad. Data approves. Press "ENGAGE!" to play again.`;
+		endPage.innerText = `You scored ${score} out of 10! Not too bad. Data approves. Press "ENGAGE!" to play again.`;
 		scoreGIF.setAttribute(
 			'src',
 			'https://media.giphy.com/media/rIq6ASPIqo2k0/giphy.gif'
 		);
 		scoreGIF.setAttribute('alt', 'Data nods in approval');
 		scoreGIF.style.width = '100%';
-		document.getElementById('end-page').appendChild(scoreGIF);
+		endPage.appendChild(scoreGIF);
 	} else {
 		//show score
-		document.getElementById(
-			'end-page'
-		).innerText = `You scored ${score} out of 10! Picard is impressed. Press "ENGAGE!" to play again.`;
+		endPage.innerText = `You scored ${score} out of 10! Picard is impressed. Press "ENGAGE!" to play again.`;
 		scoreGIF.setAttribute(
 			'src',
 			'https://media.giphy.com/media/999fcCCj45Bde/giphy.gif'
 		);
 		scoreGIF.setAttribute('alt', "Picard says, 'Damn'");
-		document.getElementById('end-page').appendChild(scoreGIF);
+		endPage.appendChild(scoreGIF);
 	}
 	//show end page div
-	document.getElementById('end-page').style.display = 'block';
+	endPage.style.display = 'block';
 }
